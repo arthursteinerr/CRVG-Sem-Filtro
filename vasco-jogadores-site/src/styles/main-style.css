@@ -1,0 +1,1210 @@
+/* ================= VASCO STYLE SYSTEM - ULTRA MODERNO E RESPONSIVO ================= */
+:root {
+  --vasco-preto: #181818;
+  --vasco-branco: #fff;
+  --vasco-cinza: #f7f7f7;
+  --vasco-cinza-escuro: #222;
+  --vasco-dourado: #c9a13b;
+  --vasco-shadow: 0 6px 32px rgba(24, 24, 24, 0.1);
+  --vasco-card-shadow: 0 8px 32px rgba(24, 24, 24, 0.13);
+  --vasco-borda: #e5e5e5;
+  --radius-lg: 22px;
+  --radius-md: 14px;
+  --radius-sm: 8px;
+  --transition: 0.28s cubic-bezier(0.77, 0, 0.18, 1);
+  --gradient-main: linear-gradient(90deg, #fffbe6 60%, #fff9d1 100%);
+  --gradient-dark: linear-gradient(90deg, #181818 60%, #222 100%);
+  --font-main: "Inter", "Segoe UI", Arial, sans-serif;
+  --font-alt: "Montserrat", "Segoe UI", Arial, sans-serif;
+  --header-height: 76px;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+  scroll-behavior: smooth;
+  background: var(--vasco-branco);
+  color: var(--vasco-preto);
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE e Edge */
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: var(--font-main);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  line-height: 1.65;
+  letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased;
+  background-image: linear-gradient(135deg, #fff 60%, #f7f7f7 100%);
+  transition: background 0.3s, color 0.3s;
+  overflow: -moz-scrollbars-none;
+}
+
+/* Remover scrollbars nativos (Webkit, Firefox e Edge/IE) */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* ================= HEADER ================= */
+header {
+  background: var(--vasco-preto);
+  color: var(--vasco-branco);
+  border-bottom: 3px solid var(--vasco-dourado);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  animation: fadeInHeader 0.7s;
+  min-height: var(--header-height);
+  width: 100vw;
+}
+@keyframes fadeInHeader {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 36px;
+  height: var(--header-height);
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+}
+.logo-link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 1.7rem;
+  color: var(--vasco-branco);
+  transition: color var(--transition);
+  letter-spacing: 1.5px;
+  font-family: var(--font-alt);
+}
+.logo {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  border: 3px solid var(--vasco-dourado);
+  background: var(--vasco-branco);
+  box-shadow: var(--vasco-card-shadow);
+  transition: border var(--transition), box-shadow var(--transition),
+    transform var(--transition);
+}
+.logo-link:hover .logo {
+  border-color: var(--vasco-preto);
+  box-shadow: 0 8px 32px rgba(24, 24, 24, 0.18);
+  transform: scale(1.07) rotate(-3deg);
+}
+
+/* ================= NAVIGATION MENU ================= */
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 28px;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-alt);
+}
+.nav-menu a {
+  text-decoration: none;
+  color: var(--vasco-branco);
+  font-weight: 600;
+  font-size: 1.08rem;
+  padding: 8px 14px;
+  border-bottom: 2.5px solid transparent;
+  border-radius: 6px 6px 0 0;
+  transition: var(--transition);
+  letter-spacing: 0.5px;
+  position: relative;
+  outline: none;
+}
+.nav-menu a:hover,
+.nav-menu a.active {
+  color: var(--vasco-dourado);
+  border-bottom: 2.5px solid var(--vasco-dourado);
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow: 0 2px 8px rgba(201, 161, 59, 0.07);
+}
+
+/* ================= MAIN LAYOUT ================= */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+}
+.main-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 36px;
+  max-width: 1280px;
+  margin: 56px auto;
+  padding: 0 28px;
+  width: 100%;
+  transition: gap var(--transition), padding var(--transition);
+}
+
+.elenco-section,
+.sidebar,
+.news-section,
+.curiosities-section {
+  border-radius: var(--radius-lg);
+  background: var(--vasco-branco);
+  border: 1.5px solid var(--vasco-borda);
+  box-shadow: var(--vasco-shadow);
+  padding: 28px;
+  transition: box-shadow var(--transition), background var(--transition),
+    border var(--transition);
+}
+.elenco-section {
+  flex: 3;
+  min-width: 0;
+}
+.sidebar {
+  flex: 1;
+  min-width: 280px;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ================= HEADER DE ELENCO ================= */
+.elenco-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+.elenco-header h1 {
+  color: var(--vasco-preto);
+  font-size: 2.1rem;
+  margin: 0;
+  letter-spacing: 2px;
+  font-weight: 900;
+  text-shadow: 0 2px 8px rgba(24, 24, 24, 0.07);
+  font-family: var(--font-alt);
+}
+#busca-jogador {
+  padding: 10px 16px;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--vasco-preto);
+  font-size: 1.12rem;
+  background: #fafafa;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  width: 240px;
+  transition: border var(--transition), box-shadow var(--transition);
+  color: var(--vasco-preto);
+  font-family: var(--font-main);
+}
+#busca-jogador:focus {
+  border: 2px solid var(--vasco-dourado);
+  background: #fff;
+  outline: 2px solid var(--vasco-dourado);
+  outline-offset: 2px;
+  box-shadow: 0 4px 16px rgba(201, 161, 59, 0.1);
+}
+
+/* ================= JOGADORES ================= */
+.jogadores-lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 30px;
+  width: 100%;
+}
+.jogador-card {
+  margin: 10px;
+  padding: 25px;
+  border-radius: var(--radius-md);
+  text-align: center;
+  cursor: pointer;
+  min-height: 170px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: visible;
+  opacity: 0;
+  transform: translateY(30px) scale(0.97);
+  animation: fadeInCard 0.7s cubic-bezier(0.77, 0, 0.18, 1) forwards;
+}
+.jogadores-lista > .jogador-card:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.jogadores-lista > .jogador-card:nth-child(2) {
+  animation-delay: 0.12s;
+}
+.jogadores-lista > .jogador-card:nth-child(3) {
+  animation-delay: 0.19s;
+}
+.jogadores-lista > .jogador-card:nth-child(4) {
+  animation-delay: 0.26s;
+}
+.jogadores-lista > .jogador-card:nth-child(5) {
+  animation-delay: 0.33s;
+}
+
+.jogador-card .jogador-foto {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border: 2px solid var(--vasco-dourado);
+  box-shadow: 0 2px 8px rgba(201, 161, 59, 0.1);
+  background: #fafafa;
+  display: block;
+}
+.jogador-card.selecionado {
+  box-shadow: 0 8px 32px rgba(201, 161, 59, 0.13);
+  background: #fffbe6;
+  transform: scale(1.06);
+  border: 2.5px solid var(--vasco-dourado);
+}
+.jogador-card:hover,
+.jogador-card.hover {
+  box-shadow: 0 2px 4px rgba(221, 220, 218, 0.2), /* Reduzido o desfoque e opacidade para um efeito quase imperceptível */
+              0 0.5px 1px rgba(217, 211, 211, 0.05); /* Sombra ainda mais sutil e suave */
+  transform: scale(1.005) translateY(-0.5px); /* Transformação minimizada para um efeito leve */
+}
+
+
+@keyframes fadeInCard {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.jogador-nome {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 2px;
+  font-family: var(--font-alt);
+}
+.jogador-idade,
+.jogador-posicao,
+.jogador-nacionalidade {
+  font-size: 0.97rem;
+  color: #444;
+  margin-bottom: 2px;
+  font-weight: 500;
+}
+.jogador-id {
+  font-size: 0.85rem;
+  color: #aaa;
+  margin-bottom: 8px;
+}
+
+/* ================= BUTTON ================= */
+.jogador-btn {
+  display: inline-block;
+  padding: 10px 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius-md);
+  background: linear-gradient(
+    90deg,
+    var(--vasco-preto) 80%,
+    var(--vasco-preto) 100%
+  );
+  color: var(--vasco-branco);
+  transition: background var(--transition), color var(--transition),
+    box-shadow var(--transition), transform var(--transition);
+  cursor: pointer;
+  margin-top: 10px;
+  width: 100%;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 12px rgba(24, 24, 24, 0.1);
+  font-family: var(--font-alt);
+}
+.jogador-btn:hover,
+.jogador-btn:focus {
+  background: linear-gradient(
+    90deg,
+    var(--vasco-dourado) 80%,
+    var(--vasco-dourado) 100%
+  );
+  color: var(--vasco-preto);
+  outline: 2px solid var(--vasco-dourado);
+  outline-offset: 2px;
+  transform: scale(1.04);
+  box-shadow: 0 4px 16px rgba(201, 161, 59, 0.13);
+}
+
+/* ================= LOADING ================= */
+.loading {
+  text-align: center;
+  color: var(--vasco-dourado);
+  font-size: 1.22rem;
+  font-weight: 600;
+  margin: 30px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  border-radius: var(--radius-md);
+  background: var(--gradient-main);
+  box-shadow: 0 4px 24px rgba(201, 161, 59, 0.13);
+  transition: background 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.loading::before {
+  content: "";
+  width: 22px;
+  height: 22px;
+  border: 4px solid var(--vasco-dourado);
+  border-top: 4px solid var(--vasco-preto);
+  border-radius: 50%;
+  display: inline-block;
+  animation: spin 1s linear infinite,
+    pulse 1.2s cubic-bezier(0.77, 0, 0.18, 1) infinite alternate;
+  margin-right: 10px;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(201, 161, 59, 0.13);
+  }
+  100% {
+    box-shadow: 0 0 16px 8px rgba(201, 161, 59, 0.08);
+  }
+}
+
+/* ================= WIDGET ================= */
+#widget-jogador {
+  margin-top: 38px;
+  margin-left: auto;
+  padding: 18px 0 0 0;
+  border-radius: var(--radius-md);
+  background: var(--vasco-branco);
+  overflow-x: auto;
+  animation: fadeInWidget 0.7s;
+  outline: none;
+}
+#widget-jogador h3 {
+  font-size: 1.25rem;
+  color: var(--vasco-dourado);
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+  text-align: left;
+  font-family: var(--font-alt);
+}
+#widget-jogador iframe {
+  width: 100%;
+  max-width: 730px;
+  height: 600px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  min-height: 400px;
+  transition: box-shadow 0.3s;
+  background: #f9f9f9;
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* ================= SIDEBAR ================= */
+.sidebar h2 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 1.13rem;
+  color: var(--vasco-preto);
+  letter-spacing: 0.5px;
+  font-weight: 700;
+  font-family: var(--font-alt);
+}
+.sidebar iframe {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  min-height: 120px;
+}
+
+/* ================= FOOTER ================= */
+footer {
+  text-align: center;
+  padding: 15px 0;
+  background: var(--vasco-preto);
+  color: var(--vasco-branco);
+  font-size: 0.98rem;
+  border-top: 3px solid var(--vasco-dourado);
+  box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.07);
+  letter-spacing: 0.5px;
+  font-family: var(--font-alt);
+}
+
+/* ================= BACK TO TOP BUTTON ================= */
+#btn-topo {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  background: var(--vasco-dourado);
+  color: var(--vasco-preto);
+  border: 2.5px solid var(--vasco-preto);
+  font-size: 2.2rem;
+  width: 54px;
+  height: 54px;
+  box-shadow: 0 8px 32px rgba(201, 161, 59, 0.13);
+  opacity: 0.85;
+  z-index: 1000;
+  display: none;
+  transition: opacity 0.2s, transform 0.2s, background 0.2s, color 0.2s;
+}
+#btn-topo:hover,
+#btn-topo:focus {
+  opacity: 1;
+  color: #fff;
+  transform: scale(1.13) rotate(-5deg);
+}
+
+/* ================= ESTATISTICAS ================= */
+.estatisticas-box {
+  background: var(--vasco-branco);
+  width: 100%;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.estat-label,
+li {
+  color: var(--vasco-preto);
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  margin-right: 8px;
+  text-decoration: none;
+}
+li a {
+  color: var(--vasco-dourado);
+  text-decoration: none;
+  font-weight: inherit;
+}
+.estat-value {
+  color: var(--vasco-dourado);
+  font-weight: bold;
+}
+
+/* ================= NEWS & CURIOSITIES ================= */
+.sidebar section {
+  width: 100%;
+  margin-bottom: 18px;
+}
+.news-section,
+.curiosities-section {
+  flex: 2;
+  padding: 40px 32px 40px 32px;
+  background: var(--vasco-branco);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 12px 40px rgba(24, 24, 24, 0.13), var(--vasco-shadow);
+  margin-bottom: 36px;
+  border: 1.5px solid var(--vasco-borda);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: introFadeIn 1.1s cubic-bezier(0.77, 0, 0.18, 1) both;
+  transition: box-shadow var(--transition), background var(--transition);
+}
+.news-section h1,
+.curiosities-section h1 {
+  color: var(--vasco-preto);
+  font-size: 2.3rem;
+  margin-bottom: 26px;
+  letter-spacing: 2.5px;
+  font-weight: 900;
+  text-align: center;
+  width: 100%;
+  text-shadow: 0 2px 12px rgba(24, 24, 24, 0.09);
+  animation: introFadeIn 1.2s cubic-bezier(0.77, 0, 0.18, 1) both;
+  font-family: var(--font-alt);
+}
+.news-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-top: 18px;
+  justify-content: center;
+  width: 100%;
+  padding: 0;
+  animation: fadeInCuriosities 0.8s cubic-bezier(0.77, 0, 0.18, 1) both;
+}
+.news-card {
+  background: var(--vasco-branco);
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--vasco-borda);
+  box-shadow: var(--vasco-card-shadow), 0 2px 12px rgba(24, 24, 24, 0.06);
+  width: 340px;
+  overflow: hidden;
+  transition: box-shadow var(--transition), transform var(--transition),
+    border var(--transition), background var(--transition);
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateY(30px) scale(0.97);
+  animation: fadeInCard 0.7s cubic-bezier(0.77, 0, 0.18, 1) forwards;
+  position: relative;
+  align-items: center;
+}
+.news-card:hover {
+  box-shadow: 0 24px 56px rgba(24, 24, 24, 0.22),
+    0 2px 12px rgba(24, 24, 24, 0.13);
+  transform: scale(1.07) translateY(-8px);
+  z-index: 2;
+  border-color: var(--vasco-dourado);
+  background: #fffbe6;
+}
+.news-card img {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  background: #eee;
+  border-bottom: 1.5px solid var(--vasco-borda);
+  transition: filter 0.3s, transform 0.3s;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+.news-card:hover img {
+  filter: brightness(0.97) saturate(1.1);
+  transform: scale(1.01);
+}
+.news-card .news-content {
+  padding: 22px 18px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+  align-items: center;
+  width: 100%;
+}
+.news-card h2 {
+  font-size: 1.22rem;
+  margin: 0;
+  color: var(--vasco-preto);
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: 0.8px;
+  transition: color var(--transition);
+  text-align: center;
+  font-family: var(--font-alt);
+}
+.news-card a {
+  color: var(--vasco-preto);
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 6px;
+  outline: none;
+  padding: 3px 8px;
+  display: inline-block;
+}
+.news-card a:hover,
+.news-card a:focus {
+  text-decoration: none;
+  background: #fffbe6;
+  outline-offset: 2px;
+}
+.news-card .news-date {
+  font-size: 1.01rem;
+  color: var(--vasco-dourado);
+  font-weight: 600;
+  margin-top: 4px;
+  letter-spacing: 0.2px;
+  text-align: center;
+}
+.news-card .news-source {
+  font-size: 1.01rem;
+  color: var(--vasco-preto);
+  font-weight: bold;
+  margin-left: 12px;
+  white-space: nowrap;
+  opacity: 0.85;
+  text-align: center;
+}
+.news-card .news-content > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+/* ================= CURIOSITIES ================= */
+.curiosities-list {
+  margin: 18px auto 24px auto; /* Centraliza horizontalmente */
+  padding-left: 0; /* Remove indentação lateral padrão */
+  font-size: 1.09rem;
+  color: var(--vasco-preto);
+  text-align: center; /* Centraliza o conteúdo da lista */
+  list-style-position: inside; /* Alinha os marcadores junto ao texto */
+  max-width: 580px; /* Mantém a lista mais contida visualmente */
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInCuriosities 0.8s cubic-bezier(0.77, 0, 0.18, 1) forwards;
+}
+
+@keyframes fadeInCuriosities {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.curiosities-list li {
+  margin-bottom: 10px;
+  font-size: 1.09rem;
+  color: var(--vasco-preto);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInCuriosityItem 0.7s cubic-bezier(0.77, 0, 0.18, 1) forwards;
+}
+.curiosities-list li:nth-child(1) {
+  animation-delay: 0.08s;
+}
+.curiosities-list li:nth-child(2) {
+  animation-delay: 0.16s;
+}
+.curiosities-list li:nth-child(3) {
+  animation-delay: 0.24s;
+}
+.curiosities-list li:nth-child(4) {
+  animation-delay: 0.32s;
+}
+.curiosities-list li:nth-child(5) {
+  animation-delay: 0.4s;
+}
+@keyframes fadeInCuriosityItem {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.wiki-curiosities {
+  background: #fffbe6;
+  border: 1.5px solid var(--vasco-dourado);
+  color: #222;
+  font-size: 1.04rem;
+  margin-top: 18px;
+  box-shadow: 0 2px 8px rgba(201, 161, 59, 0.07);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInWidget 0.7s cubic-bezier(0.77, 0, 0.18, 1) forwards;
+}
+
+/* ================= ANIMAÇÕES DE INTRODUÇÃO E SUAVIZAÇÃO ================= */
+.intro-animate {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: introFadeIn 1.2s cubic-bezier(0.77, 0, 0.18, 1) forwards;
+}
+@keyframes introFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fadein-list > * {
+  opacity: 0;
+  transform: translateY(30px) scale(0.97);
+  animation: fadeInListItem 0.7s cubic-bezier(0.77, 0, 0.18, 1) forwards;
+}
+.fadein-list > *:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.fadein-list > *:nth-child(2) {
+  animation-delay: 0.12s;
+}
+.fadein-list > *:nth-child(3) {
+  animation-delay: 0.19s;
+}
+.fadein-list > *:nth-child(4) {
+  animation-delay: 0.26s;
+}
+.fadein-list > *:nth-child(5) {
+  animation-delay: 0.33s;
+}
+@keyframes fadeInListItem {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.smooth-transition {
+  transition: all 0.4s cubic-bezier(0.77, 0, 0.18, 1);
+}
+
+/* ================= MELHORIAS PROFISSIONAIS E UX ================= */
+#progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--vasco-dourado), var(--vasco-preto));
+  z-index: 2000;
+  width: 0;
+  transition: width 0.3s cubic-bezier(0.77, 0, 0.18, 1);
+}
+body.dark-mode {
+  background: #181818;
+  color: #f7f7f7;
+  background-image: linear-gradient(135deg, #222 60%, #181818 100%);
+}
+body.dark-mode header,
+body.dark-mode .sidebar,
+body.dark-mode .elenco-section,
+body.dark-mode .news-section,
+body.dark-mode .curiosities-section,
+body.dark-mode .news-card,
+body.dark-mode .jogador-card {
+  background: rgba(24, 24, 24, 0.92) !important;
+  color: #f7f7f7 !important;
+  border-color: rgba(201, 161, 59, 0.13) !important;
+  box-shadow: 0 8px 32px rgba(24, 24, 24, 0.22);
+}
+body.dark-mode .news-card:hover,
+body.dark-mode .jogador-card:hover,
+body.dark-mode .jogador-card.hover {
+  background: rgba(201, 161, 59, 0.08) !important;
+  color: #fff !important;
+}
+body.dark-mode .nav-menu,
+body.dark-mode nav {
+  background: #181818 !important;
+}
+body.dark-mode .nav-menu a {
+  color: #fff !important;
+}
+body.dark-mode .nav-menu a.active,
+body.dark-mode .nav-menu a:hover {
+  color: var(--vasco-dourado) !important;
+  background: rgba(201, 161, 59, 0.07) !important;
+}
+body.dark-mode #btn-topo {
+  background: var(--vasco-preto);
+  color: var(--vasco-dourado);
+  border: 2px solid var(--vasco-dourado);
+}
+body.dark-mode #btn-topo:hover {
+  background: var(--vasco-dourado);
+  color: var(--vasco-preto);
+}
+body.dark-mode .loading {
+  background: var(--gradient-dark);
+  color: var(--vasco-dourado);
+}
+body.dark-mode .estat-label,
+body.dark-mode li {
+  color: #fff !important;
+}
+body.dark-mode .estat-value {
+  color: var(--vasco-dourado) !important;
+}
+body.dark-mode .wiki-curiosities {
+  background: #222;
+  color: #fff;
+  border-color: var(--vasco-dourado);
+}
+#toggle-darkmode {
+  background: none;
+  border: none;
+  color: var(--vasco-dourado);
+  font-size: 1.7rem;
+  cursor: pointer;
+  margin-left: 18px;
+  transition: color 0.2s;
+  outline: none;
+}
+.jogador-card:focus-within,
+.news-card:focus-within {
+  outline: 2.5px solid var(--vasco-dourado);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(227, 6, 19, 0.08);
+}
+.jogador-card.selecionado {
+  border: 2.5px solid var(--vasco-dourado);
+  box-shadow: 0 8px 32px rgba(227, 6, 19, 0.13),
+    0 2px 12px rgba(24, 24, 24, 0.1);
+  background: #fffbe6;
+  transform: scale(1.07) rotate(-1deg);
+  z-index: 3;
+}
+.jogador-card:hover .jogador-foto,
+.jogador-card.selecionado .jogador-foto {
+  box-shadow: 0 4px 16px rgba(227, 6, 19, 0.13);
+  transform: scale(1.08) rotate(-2deg);
+  transition: border 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+body,
+input,
+button {
+  font-family: var(--font-main);
+  font-size: 1.04rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-alt);
+  font-weight: 900;
+  letter-spacing: 1.5px;
+}
+.elenco-header h1,
+.news-section h1,
+.curiosities-section h1 {
+  font-size: 2.4rem;
+  font-weight: 900;
+  letter-spacing: 2.5px;
+  color: var(--vasco-preto);
+  margin-bottom: 18px;
+}
+@media (max-width: 700px) {
+  .elenco-header h1,
+  .news-section h1,
+  .curiosities-section h1 {
+    font-size: 1.3rem;
+  }
+}
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 1rem;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--vasco-borda);
+  transition: border 0.2s, box-shadow 0.2s;
+}
+input:focus,
+button:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--vasco-dourado);
+  outline: 2px solid var(--vasco-dourado);
+  outline-offset: 2px;
+  box-shadow: 0 2px 8px rgba(201, 161, 59, 0.13);
+}
+.jogador-btn {
+  font-size: 1.08rem;
+  font-weight: 700;
+  border-radius: var(--radius-md);
+  padding: 12px 18px;
+  background: linear-gradient(
+    90deg,
+    var(--vasco-dourado) 60%,
+    var(--vasco-dourado) 100%
+  );
+  color: var(--vasco-preto);
+  box-shadow: 0 2px 12px rgba(201, 161, 59, 0.1);
+  border: none;
+  margin-top: 12px;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+.jogador-btn:hover,
+.jogador-btn:focus {
+  background: linear-gradient(
+    90deg,
+    var(--vasco-dourado) 60%,
+    var(--vasco-dourado) 100%
+  );
+  color: #fff;
+  transform: scale(1.05);
+  box-shadow: 0 4px 16px rgba(227, 6, 19, 0.13);
+}
+header {
+  box-shadow: 0 6px 24px rgba(24, 24, 24, 0.13);
+  border-bottom: 3px solid var(--vasco-dourado);
+}
+.menu-overlay.active {
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  background: rgba(24, 24, 24, 0.55);
+}
+.jogador-card,
+.news-card {
+  background: rgba(255, 255, 255, 0.92);
+  border: 2px solid rgba(201, 161, 59, 0.13);
+  transition: box-shadow 0.25s, transform 0.25s, border 0.2s, background 0.2s;
+  will-change: transform, box-shadow;
+}
+.jogador-card:hover,
+.news-card:hover {
+  box-shadow: 0 24px 56px rgba(24, 24, 24, 0.22),
+    0 2px 12px rgba(24, 24, 24, 0.13);
+  transform: scale(1.08) rotate(-1deg) translateY(-8px);
+  z-index: 3;
+  background: rgba(255, 251, 230, 0.97);
+}
+.sidebar {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1.5px solid rgba(201, 161, 59, 0.13);
+  box-shadow: 0 4px 16px rgba(24, 24, 24, 0.1);
+  padding: 28px 18px;
+  gap: 28px;
+}
+.sidebar section {
+  margin-bottom: 22px;
+  border-bottom: 1px solid var(--vasco-borda);
+  padding-bottom: 12px;
+}
+.sidebar section:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+footer {
+  background: var(--vasco-preto);
+  color: var(--vasco-dourado);
+  font-size: 1.04rem;
+  padding: 18px 0;
+  border-top: 3px solid var(--vasco-dourado);
+  box-shadow: 0 -2px 12px rgba(24, 24, 24, 0.1);
+  letter-spacing: 0.7px;
+}
+@media (max-width: 600px) {
+  footer {
+    font-size: 0.95rem;
+    padding: 12px 0;
+  }
+}
+#btn-topo {
+  background: var(--vasco-dourado);
+  color: var(--vasco-preto);
+  border: 2.5px solid var(--vasco-preto);
+  font-size: 2.2rem;
+  width: 54px;
+  height: 54px;
+  box-shadow: 0 8px 32px rgba(201, 161, 59, 0.13);
+  opacity: 0.85;
+  right: 32px;
+  bottom: 32px;
+  transition: opacity 0.2s, transform 0.2s, background 0.2s, color 0.2s;
+}
+#btn-topo:hover,
+#btn-topo:focus {
+  opacity: 1;
+  background: var(--vasco-dourado);
+  color: #fff;
+  transform: scale(1.13) rotate(-5deg);
+}
+::-webkit-scrollbar {
+  width: 10px;
+  background: #eee;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--vasco-dourado);
+  border-radius: 8px;
+}
+@keyframes fadeInWidget {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeInHeader {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+*:focus-visible {
+  outline: 2.5px solid var(--vasco-preto);
+  outline-offset: 2px;
+  transition: outline 0.2s;
+}
+
+/* ================= RESPONSIVIDADE ULTRA ================= */
+@media (max-width: 1100px) {
+  .main-content {
+    max-width: 98vw;
+    gap: 18px;
+    padding: 0 8px;
+  }
+  .news-section,
+  .curiosities-section {
+    padding: 18px 4px;
+    border-radius: var(--radius-sm);
+  }
+  .news-section h1,
+  .curiosities-section h1 {
+    font-size: 1.4rem;
+    padding: 0 2px;
+  }
+  .news-list {
+    gap: 18px;
+  }
+  .news-card {
+    width: 100%;
+    min-width: 0;
+    border-radius: var(--radius-sm);
+  }
+  .news-card img {
+    height: 120px;
+    border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  }
+  .news-card .news-content {
+    padding: 10px 4px 8px 4px;
+    gap: 8px;
+  }
+}
+@media (max-width: 900px) {
+  nav {
+    flex-direction: column;
+    height: auto;
+    padding: 0 8px;
+    gap: 8px;
+  }
+  .logo-link {
+    font-size: 1.1rem;
+    gap: 6px;
+  }
+  .logo {
+    width: 36px;
+    height: 36px;
+  }
+  .nav-menu {
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 0.98rem;
+  }
+  .nav-menu a {
+    padding: 6px 8px;
+    font-size: 0.98rem;
+  }
+  .sidebar {
+    max-width: 100%;
+    gap: 12px;
+    padding: 12px 6px;
+  }
+  .main-content {
+    flex-direction: column;
+    gap: 12px;
+    padding: 0 2vw;
+    margin: 24px 0;
+  }
+  .elenco-section,
+  .sidebar,
+  .news-section,
+  .curiosities-section {
+    padding: 12px 6px;
+    border-radius: var(--radius-sm);
+    min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+@media (max-width: 700px) {
+  .jogadores-lista {
+    grid-template-columns: 1fr 1fr;
+    margin-top: 12px;
+  }
+  .jogador-card {
+    min-width: 0;
+    padding: 12px 6px;
+  }
+  .sidebar iframe,
+  #widget-jogador iframe {
+    min-height: 80px;
+    height: 180px;
+    max-width: 100vw;
+  }
+  #widget-jogador {
+    padding: 8px 0 0 0;
+    margin-top: 18px;
+  }
+  .elenco-header h1,
+  .news-section h1,
+  .curiosities-section h1 {
+    font-size: 1.1rem;
+  }
+}
+@media (max-width: 500px) {
+  .jogadores-lista {
+    grid-template-columns: 1fr;
+  }
+  #busca-jogador,
+  .jogador-btn {
+    width: 100%;
+    font-size: 1rem;
+    padding: 10px 0;
+    min-width: 0;
+  }
+  footer {
+    font-size: 0.85rem;
+    padding: 8px 0;
+  }
+  #btn-topo {
+    width: 38px;
+    height: 38px;
+    font-size: 1.3rem;
+    right: 12px;
+    bottom: 12px;
+  }
+}
+@media (min-width: 1400px) {
+  html {
+    font-size: 18px;
+  }
+  .main-content {
+    max-width: 1600px;
+    gap: 48px;
+  }
+  .news-card,
+  .jogador-card {
+    font-size: 1.15rem;
+  }
+}
+@media (max-width: 400px) {
+  html {
+    font-size: 13px;
+  }
+  .elenco-header h1,
+  .news-section h1,
+  .curiosities-section h1 {
+    font-size: 1rem;
+  }
+}
+body,
+html {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+.jogadores-lista,
+.news-list,
+.curiosities-list {
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: auto;
+}

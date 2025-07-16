@@ -1,0 +1,26 @@
+{
+  "name": "vasco-jogadores-site",
+  "version": "1.0.0",
+  "description": "Site modular e profissional para exibir elenco, estatísticas e partidas do Vasco da Gama, consumindo APIs reais.",
+  "main": "src/scripts/main.js",
+  "scripts": {
+    "start": "live-server src",
+    "build": "echo 'Build process not defined yet.'"
+  },
+  "keywords": [
+    "Vasco",
+    "jogadores",
+    "futebol",
+    "site"
+  ],
+  "author": "Seu Nome",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.10.0",
+    "newsapi": "^2.4.1"
+  },
+  "devDependencies": {
+    "@types/axios": "^0.9.36",
+    "live-server": "^1.2.1"
+  }
+}
