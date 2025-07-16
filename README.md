@@ -1,5 +1,7 @@
 # CRVG Sem Filtro — Site do Vasco da Gama
 
+![CRVG](vasco-jogadores-site/src/img/icones/CRVG.png)
+
 ## Sobre o Projeto
 
 **CRVG Sem Filtro** é um site não-oficial dedicado ao Clube de Regatas Vasco da Gama, criado para fornecer informações dinâmicas e atualizadas sobre o clube. O projeto oferece uma visão completa do elenco do time, com dados detalhados de jogadores, estatísticas históricas, notícias, próximos jogos, curiosidades e muito mais. Tudo isso em uma interface moderna, acessível e responsiva, usando as mais recentes tecnologias de desenvolvimento web.
