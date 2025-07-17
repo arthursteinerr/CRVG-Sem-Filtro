@@ -509,15 +509,20 @@ li a {
   font-weight: bold;
 }
 
-/* ================= NEWS & CURIOSITIES ================= */
+/* ================= NEWS ================= */
+/* ------------------------------------ */
+/* Geral: Estilização da Sidebar e Seções */
+/* ------------------------------------ */
 .sidebar section {
   width: 100%;
   margin-bottom: 18px;
 }
+
+/* Seções principais (Curiosidades, Notícias) */
 .news-section,
 .curiosities-section {
   flex: 2;
-  padding: 40px 32px 40px 32px;
+  padding: 40px 32px;
   background: var(--vasco-branco);
   border-radius: var(--radius-lg);
   box-shadow: 0 12px 40px rgba(24, 24, 24, 0.13), var(--vasco-shadow);
@@ -529,6 +534,8 @@ li a {
   animation: introFadeIn 1.1s cubic-bezier(0.77, 0, 0.18, 1) both;
   transition: box-shadow var(--transition), background var(--transition);
 }
+
+/* Títulos das seções (Notícias e Curiosidades) */
 .news-section h1,
 .curiosities-section h1 {
   color: var(--vasco-preto);
@@ -537,11 +544,16 @@ li a {
   letter-spacing: 2.5px;
   font-weight: 900;
   text-align: center;
-  width: 100%;
   text-shadow: 0 2px 12px rgba(24, 24, 24, 0.09);
   animation: introFadeIn 1.2s cubic-bezier(0.77, 0, 0.18, 1) both;
   font-family: var(--font-alt);
 }
+
+/* ------------------------------------ */
+/* Notícia - Lista e Cartões */
+/* ------------------------------------ */
+
+/* Estilo da lista de notícias */
 .news-list {
   display: flex;
   flex-wrap: wrap;
@@ -552,6 +564,8 @@ li a {
   padding: 0;
   animation: fadeInCuriosities 0.8s cubic-bezier(0.77, 0, 0.18, 1) both;
 }
+
+/* Cartões de notícia */
 .news-card {
   background: var(--vasco-branco);
   border-radius: var(--radius-md);
@@ -559,8 +573,7 @@ li a {
   box-shadow: var(--vasco-card-shadow), 0 2px 12px rgba(24, 24, 24, 0.06);
   width: 340px;
   overflow: hidden;
-  transition: box-shadow var(--transition), transform var(--transition),
-    border var(--transition), background var(--transition);
+  transition: box-shadow var(--transition), transform var(--transition), border var(--transition), background var(--transition);
   display: flex;
   flex-direction: column;
   opacity: 0;
@@ -569,14 +582,17 @@ li a {
   position: relative;
   align-items: center;
 }
+
+/* Hover: Efeito sobre os cartões */
 .news-card:hover {
-  box-shadow: 0 24px 56px rgba(24, 24, 24, 0.22),
-    0 2px 12px rgba(24, 24, 24, 0.13);
+  box-shadow: 0 24px 56px rgba(24, 24, 24, 0.22), 0 2px 12px rgba(24, 24, 24, 0.13);
   transform: scale(1.07) translateY(-8px);
   z-index: 2;
   border-color: var(--vasco-dourado);
   background: #fffbe6;
 }
+
+/* Imagem do cartão de notícia */
 .news-card img {
   width: 100%;
   height: 210px;
@@ -586,12 +602,16 @@ li a {
   transition: filter 0.3s, transform 0.3s;
   border-radius: var(--radius-md) var(--radius-md) 0 0;
 }
+
+/* Hover na imagem do cartão */
 .news-card:hover img {
   filter: brightness(0.97) saturate(1.1);
   transform: scale(1.01);
 }
+
+/* Conteúdo dentro do cartão de notícias */
 .news-card .news-content {
-  padding: 22px 18px 18px 18px;
+  padding: 22px 18px 18px;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -599,6 +619,8 @@ li a {
   align-items: center;
   width: 100%;
 }
+
+/* Título dentro do cartão */
 .news-card h2 {
   font-size: 1.22rem;
   margin: 0;
@@ -610,6 +632,8 @@ li a {
   text-align: center;
   font-family: var(--font-alt);
 }
+
+/* Link dentro do cartão */
 .news-card a {
   color: var(--vasco-preto);
   text-decoration: none;
@@ -619,12 +643,16 @@ li a {
   padding: 3px 8px;
   display: inline-block;
 }
+
+/* Hover no link do cartão */
 .news-card a:hover,
 .news-card a:focus {
   text-decoration: none;
   background: #fffbe6;
   outline-offset: 2px;
 }
+
+/* Data da notícia */
 .news-card .news-date {
   font-size: 1.01rem;
   color: var(--vasco-dourado);
@@ -633,6 +661,8 @@ li a {
   letter-spacing: 0.2px;
   text-align: center;
 }
+
+/* Fonte da notícia (ex: fonte da imagem) */
 .news-card .news-source {
   font-size: 1.01rem;
   color: var(--vasco-preto);
@@ -642,6 +672,8 @@ li a {
   opacity: 0.85;
   text-align: center;
 }
+
+/* Alinhamento no conteúdo da notícia */
 .news-card .news-content > div {
   display: flex;
   justify-content: center;
@@ -650,15 +682,43 @@ li a {
   width: 100%;
 }
 
+/* ------------------------------------ */
+/* Animações (fade-in e intro) */
+/* ------------------------------------ */
+
+@keyframes fadeInCuriosities {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInCard {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes introFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* ================= CURIOSITIES ================= */
+/* Lista de Curiosidades */
 .curiosities-list {
-  margin: 18px auto 24px auto; /* Centraliza horizontalmente */
-  padding-left: 0; /* Remove indentação lateral padrão */
-  font-size: 1.09rem;
+  display: flex;
+  flex-direction: column; /* Organiza os itens verticalmente */
+  align-items: center; /* Centraliza os itens */
+  margin: 18px auto 24px;
+  padding: 0;
+  font-size: 1.1rem;
   color: var(--vasco-preto);
-  text-align: center; /* Centraliza o conteúdo da lista */
-  list-style-position: inside; /* Alinha os marcadores junto ao texto */
-  max-width: 580px; /* Mantém a lista mais contida visualmente */
+  list-style: none; /* Remove os marcadores */
+  max-width: 600px; /* Ajuste para manter o conteúdo mais compacto */
   opacity: 0;
   transform: translateY(30px);
   animation: fadeInCuriosities 0.8s cubic-bezier(0.77, 0, 0.18, 1) forwards;
@@ -670,47 +730,77 @@ li a {
     transform: translateY(0);
   }
 }
+
+/* Estilo dos itens da lista */
 .curiosities-list li {
-  margin-bottom: 10px;
-  font-size: 1.09rem;
+  margin-bottom: 12px; /* Espaçamento entre os itens */
+  font-size: 1.1rem;
   color: var(--vasco-preto);
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInCuriosityItem 0.7s cubic-bezier(0.77, 0, 0.18, 1) forwards;
 }
+
 .curiosities-list li:nth-child(1) {
-  animation-delay: 0.08s;
+  animation-delay: 0.1s;
 }
 .curiosities-list li:nth-child(2) {
-  animation-delay: 0.16s;
+  animation-delay: 0.2s;
 }
 .curiosities-list li:nth-child(3) {
-  animation-delay: 0.24s;
+  animation-delay: 0.3s;
 }
 .curiosities-list li:nth-child(4) {
-  animation-delay: 0.32s;
-}
-.curiosities-list li:nth-child(5) {
   animation-delay: 0.4s;
 }
+.curiosities-list li:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
 @keyframes fadeInCuriosityItem {
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
+
+/* Bloco de Curiosidades da Wikipedia */
 .wiki-curiosities {
   background: #fffbe6;
   border: 1.5px solid var(--vasco-dourado);
   color: #222;
-  font-size: 1.04rem;
-  margin-top: 18px;
-  box-shadow: 0 2px 8px rgba(201, 161, 59, 0.07);
-  border-radius: var(--radius-md);
-  padding: 12px 14px;
+  font-size: 1.05rem;
+  margin-top: 20px;
+  box-shadow: 0 2px 8px rgba(201, 161, 59, 0.12); /* Sombra mais suave */
+  border-radius: 8px; /* Border-radius mais arredondado */
+  padding: 16px 18px; /* Maior espaçamento interno */
   opacity: 0;
   transform: translateY(30px);
   animation: fadeInWidget 0.7s cubic-bezier(0.77, 0, 0.18, 1) forwards;
+}
+
+@keyframes fadeInWidget {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Melhoria no layout para dispositivos móveis */
+@media (max-width: 600px) {
+  .curiosities-list {
+    max-width: 100%; /* Lista ocupa toda a largura em dispositivos menores */
+    padding-left: 16px; /* Adiciona padding lateral */
+    padding-right: 16px;
+  }
+
+  .curiosities-list li {
+    font-size: 1.05rem; /* Reduz o tamanho da fonte em telas pequenas */
+  }
+
+  .wiki-curiosities {
+    padding: 12px; /* Ajusta o padding para dispositivos menores */
+  }
 }
 
 /* ================= ANIMAÇÕES DE INTRODUÇÃO E SUAVIZAÇÃO ================= */
@@ -719,17 +809,20 @@ li a {
   transform: translateY(40px);
   animation: introFadeIn 1.2s cubic-bezier(0.77, 0, 0.18, 1) forwards;
 }
+
 @keyframes introFadeIn {
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
+
 .fadein-list > * {
   opacity: 0;
   transform: translateY(30px) scale(0.97);
   animation: fadeInListItem 0.7s cubic-bezier(0.77, 0, 0.18, 1) forwards;
 }
+
 .fadein-list > *:nth-child(1) {
   animation-delay: 0.05s;
 }
@@ -745,12 +838,14 @@ li a {
 .fadein-list > *:nth-child(5) {
   animation-delay: 0.33s;
 }
+
 @keyframes fadeInListItem {
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
   }
 }
+
 .smooth-transition {
   transition: all 0.4s cubic-bezier(0.77, 0, 0.18, 1);
 }
@@ -767,11 +862,13 @@ li a {
   width: 0;
   transition: width 0.3s cubic-bezier(0.77, 0, 0.18, 1);
 }
+
 body.dark-mode {
   background: #181818;
   color: #f7f7f7;
   background-image: linear-gradient(135deg, #222 60%, #181818 100%);
 }
+
 body.dark-mode header,
 body.dark-mode .sidebar,
 body.dark-mode .elenco-section,
@@ -784,49 +881,60 @@ body.dark-mode .jogador-card {
   border-color: rgba(201, 161, 59, 0.13) !important;
   box-shadow: 0 8px 32px rgba(24, 24, 24, 0.22);
 }
+
 body.dark-mode .news-card:hover,
 body.dark-mode .jogador-card:hover,
 body.dark-mode .jogador-card.hover {
   background: rgba(201, 161, 59, 0.08) !important;
   color: #fff !important;
 }
+
 body.dark-mode .nav-menu,
 body.dark-mode nav {
   background: #181818 !important;
 }
+
 body.dark-mode .nav-menu a {
   color: #fff !important;
 }
+
 body.dark-mode .nav-menu a.active,
 body.dark-mode .nav-menu a:hover {
   color: var(--vasco-dourado) !important;
   background: rgba(201, 161, 59, 0.07) !important;
 }
+
 body.dark-mode #btn-topo {
   background: var(--vasco-preto);
   color: var(--vasco-dourado);
   border: 2px solid var(--vasco-dourado);
 }
+
 body.dark-mode #btn-topo:hover {
   background: var(--vasco-dourado);
   color: var(--vasco-preto);
 }
+
 body.dark-mode .loading {
   background: var(--gradient-dark);
   color: var(--vasco-dourado);
 }
+
 body.dark-mode .estat-label,
 body.dark-mode li {
   color: #fff !important;
 }
+
 body.dark-mode .estat-value {
   color: var(--vasco-dourado) !important;
 }
+
 body.dark-mode .wiki-curiosities {
   background: #222;
   color: #fff;
   border-color: var(--vasco-dourado);
 }
+
 #toggle-darkmode {
   background: none;
   border: none;
@@ -837,12 +945,14 @@ body.dark-mode .wiki-curiosities {
   transition: color 0.2s;
   outline: none;
 }
+
 .jogador-card:focus-within,
 .news-card:focus-within {
   outline: 2.5px solid var(--vasco-dourado);
   outline-offset: 2px;
   box-shadow: 0 0 0 4px rgba(227, 6, 19, 0.08);
 }
+
 .jogador-card.selecionado {
   border: 2.5px solid var(--vasco-dourado);
   box-shadow: 0 8px 32px rgba(227, 6, 19, 0.13),
@@ -851,12 +961,14 @@ body.dark-mode .wiki-curiosities {
   transform: scale(1.07) rotate(-1deg);
   z-index: 3;
 }
+
 .jogador-card:hover .jogador-foto,
 .jogador-card.selecionado .jogador-foto {
   box-shadow: 0 4px 16px rgba(227, 6, 19, 0.13);
   transform: scale(1.08) rotate(-2deg);
   transition: border 0.2s, box-shadow 0.2s, transform 0.2s;
 }
+
 body,
 input,
 button {
@@ -865,6 +977,7 @@ button {
   font-weight: 400;
   letter-spacing: 0.01em;
 }
+
 h1,
 h2,
 h3,
@@ -873,6 +986,7 @@ h4 {
   font-weight: 900;
   letter-spacing: 1.5px;
 }
+
 .elenco-header h1,
 .news-section h1,
 .curiosities-section h1 {
@@ -882,6 +996,7 @@ h4 {
   color: var(--vasco-preto);
   margin-bottom: 18px;
 }
+
 @media (max-width: 700px) {
   .elenco-header h1,
   .news-section h1,
@@ -889,6 +1004,7 @@ h4 {
     font-size: 1.3rem;
   }
 }
+
 input,
 button,
 select,
@@ -899,6 +1015,7 @@ textarea {
   border: 1.5px solid var(--vasco-borda);
   transition: border 0.2s, box-shadow 0.2s;
 }
+
 input:focus,
 button:focus,
 select:focus,
@@ -908,6 +1025,7 @@ textarea:focus {
   outline-offset: 2px;
   box-shadow: 0 2px 8px rgba(201, 161, 59, 0.13);
 }
+
 .jogador-btn {
   font-size: 1.08rem;
   font-weight: 700;
@@ -924,6 +1042,7 @@ textarea:focus {
   margin-top: 12px;
   transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
 }
+
 .jogador-btn:hover,
 .jogador-btn:focus {
   background: linear-gradient(
@@ -935,15 +1054,18 @@ textarea:focus {
   transform: scale(1.05);
   box-shadow: 0 4px 16px rgba(227, 6, 19, 0.13);
 }
+
 header {
   box-shadow: 0 6px 24px rgba(24, 24, 24, 0.13);
   border-bottom: 3px solid var(--vasco-dourado);
 }
+
 .menu-overlay.active {
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
   background: rgba(24, 24, 24, 0.55);
 }
+
 .jogador-card,
 .news-card {
   background: rgba(255, 255, 255, 0.92);
@@ -951,6 +1073,7 @@ header {
   transition: box-shadow 0.25s, transform 0.25s, border 0.2s, background 0.2s;
   will-change: transform, box-shadow;
 }
+
 .jogador-card:hover,
 .news-card:hover {
   box-shadow: 0 24px 56px rgba(24, 24, 24, 0.22),
@@ -959,6 +1082,7 @@ header {
   z-index: 3;
   background: rgba(255, 251, 230, 0.97);
 }
+
 .sidebar {
   background: rgba(255, 255, 255, 0.92);
   border: 1.5px solid rgba(201, 161, 59, 0.13);
@@ -966,15 +1090,18 @@ header {
   padding: 28px 18px;
   gap: 28px;
 }
+
 .sidebar section {
   margin-bottom: 22px;
   border-bottom: 1px solid var(--vasco-borda);
   padding-bottom: 12px;
 }
+
 .sidebar section:last-child {
   border-bottom: none;
   padding-bottom: 0;
 }
+
 footer {
   background: var(--vasco-preto);
   color: var(--vasco-dourado);
@@ -984,12 +1111,14 @@ footer {
   box-shadow: 0 -2px 12px rgba(24, 24, 24, 0.1);
   letter-spacing: 0.7px;
 }
+
 @media (max-width: 600px) {
   footer {
     font-size: 0.95rem;
     padding: 12px 0;
   }
 }
+
 #btn-topo {
   background: var(--vasco-dourado);
   color: var(--vasco-preto);
@@ -1003,6 +1132,7 @@ footer {
   bottom: 32px;
   transition: opacity 0.2s, transform 0.2s, background 0.2s, color 0.2s;
 }
+
 #btn-topo:hover,
 #btn-topo:focus {
   opacity: 1;
@@ -1010,14 +1140,17 @@ footer {
   color: #fff;
   transform: scale(1.13) rotate(-5deg);
 }
+
 ::-webkit-scrollbar {
   width: 10px;
   background: #eee;
 }
+
 ::-webkit-scrollbar-thumb {
   background: var(--vasco-dourado);
   border-radius: 8px;
 }
+
 @keyframes fadeInWidget {
   from {
     opacity: 0;
@@ -1028,6 +1161,7 @@ footer {
     transform: translateY(0);
   }
 }
+
 @keyframes fadeInHeader {
   from {
     opacity: 0;
@@ -1038,6 +1172,7 @@ footer {
     transform: translateY(0);
   }
 }
+
 *:focus-visible {
   outline: 2.5px solid var(--vasco-preto);
   outline-offset: 2px;
@@ -1078,6 +1213,7 @@ footer {
     gap: 8px;
   }
 }
+
 @media (max-width: 900px) {
   nav {
     flex-direction: column;
@@ -1125,6 +1261,7 @@ footer {
     box-sizing: border-box;
   }
 }
+
 @media (max-width: 700px) {
   .jogadores-lista {
     grid-template-columns: 1fr 1fr;
@@ -1150,6 +1287,7 @@ footer {
     font-size: 1.1rem;
   }
 }
+
 @media (max-width: 500px) {
   .jogadores-lista {
     grid-template-columns: 1fr;
@@ -1173,6 +1311,7 @@ footer {
     bottom: 12px;
   }
 }
+
 @media (min-width: 1400px) {
   html {
     font-size: 18px;
@@ -1186,6 +1325,7 @@ footer {
     font-size: 1.15rem;
   }
 }
+
 @media (max-width: 400px) {
   html {
     font-size: 13px;
@@ -1196,15 +1336,51 @@ footer {
     font-size: 1rem;
   }
 }
+
 body,
 html {
   max-width: 100vw;
   overflow-x: hidden;
 }
+
 .jogadores-lista,
 .news-list,
 .curiosities-list {
   width: 100%;
   box-sizing: border-box;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* For smoother scrolling on iOS */
+  scrollbar-width: thin;
+  scrollbar-color: var(--vasco-dourado) transparent; /* Custom scrollbar color */
+}
+
+/* ================= EXTRAS PARA MELHOR USABILIDADE E PERFORMANCE ================= */
+html, body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+@keyframes fadeInSmooth {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+*::after,
+*::before {
+  box-sizing: inherit;
 }

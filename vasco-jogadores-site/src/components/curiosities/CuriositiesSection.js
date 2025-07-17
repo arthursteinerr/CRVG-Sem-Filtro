@@ -1,4 +1,7 @@
 export default function CuriositiesSection() {
+    /**
+     * Função utilitária para criar elementos HTML.
+     */
     const createElement = (tag, props = {}, ...children) => {
         const element = document.createElement(tag);
         Object.entries(props).forEach(([key, value]) => {
@@ -16,54 +19,32 @@ export default function CuriositiesSection() {
         return element;
     };
 
+    /**
+     * Função para criar a lista de curiosidades e fatos importantes.
+     */
     const createCuriosityList = () => {
-        const curiosities = [
-            "O Vasco foi o primeiro clube a lutar contra o racismo no futebol brasileiro.",
-            "O estádio de São Januário foi construído com recursos da própria torcida.",
-            "O clube já revelou grandes craques como Romário, Edmundo e Juninho Pernambucano.",
-            "O Vasco foi campeão da Libertadores em 1998.",
-            "O mascote oficial é o Almirante.",
+        const curiositiesAndFacts = [
+            "O Vasco da Gama foi o primeiro clube brasileiro a lutar contra o racismo no futebol.",
+            "São Januário, inaugurado em 1927, é o estádio mais tradicional do Rio de Janeiro e um dos maiores símbolos do clube.",
+            "Em 1998, o Vasco conquistou sua primeira e única Copa Libertadores, vencendo o Barcelona de Guayaquil na final.",
+            "O clube é famoso por revelar grandes craques como Romário, Edmundo, Juninho Pernambucano e Roberto Dinamite.",
+            "O Vasco é um dos poucos clubes brasileiros a ter conquistado a Taça Rio, Taça Guanabara e Campeonato Carioca de forma invicta.",
+            "A torcida vascaína, uma das maiores do Brasil, é reconhecida pela paixão incondicional e apoio constante em todos os momentos do clube.",
+            "Com uma história de inclusão, o Vasco foi pioneiro ao permitir jogadores negros e de classes populares, muito antes de outros clubes brasileiros.",
+            "O clube também tem uma rica história no futebol feminino, conquistando títulos importantes, como o Campeonato Brasileiro de Futebol Feminino de 2016."
         ];
 
         const list = createElement("ul", { className: "curiosities-list" });
-        curiosities.forEach(text => {
+        curiositiesAndFacts.forEach(text => {
             const li = createElement("li", {}, text);
             list.appendChild(li);
         });
-
         return list;
     };
 
-    const createEstatisticasSection = () => {
-        const estatItems = [
-            { label: "Ano de Fundação", value: "1898" },
-            { label: "Estádio", value: "São Januário" },
-            { label: "Mascote", value: "Almirante" },
-            { label: "Torcida", value: "6ª maior do Brasil" }
-        ];
-
-        const grid = createElement("div", { className: "estatisticas-grid" });
-
-        estatItems.forEach(item => {
-            const bloco = createElement("div", { className: "estat-bloco" },
-                createElement("span", { className: "estat-label" }, item.label),
-                createElement("span", { className: "estat-value" }, item.value)
-            );
-            grid.appendChild(bloco);
-        });
-
-        return createElement(
-            "section",
-            {
-                id: "estatisticas",
-                className: "estatisticas-section",
-                "aria-label": "Informações históricas do Vasco"
-            },
-            createElement("h2", {}, "Dados Históricos do Vasco"),
-            grid
-        );
-    };
-
+    /**
+     * Função para criar o bloco de curiosidades da Wikipedia.
+     */
     const createWikipediaBlock = () => {
         return createElement(
             "div",
@@ -77,6 +58,9 @@ export default function CuriositiesSection() {
         );
     };
 
+    /**
+     * Função para buscar o resumo da Wikipedia e atualizar o conteúdo.
+     */
     const fetchWikipediaSummary = async (container) => {
         const wikiDiv = container.querySelector("#wiki-curiosities");
 
@@ -89,9 +73,10 @@ export default function CuriositiesSection() {
 
             const data = await response.json();
 
+            // Remover o "loading" e adicionar conteúdo
             wikiDiv.classList.remove("loading");
             wikiDiv.setAttribute("aria-busy", "false");
-            wikiDiv.innerHTML = "";
+            wikiDiv.innerHTML = "";  // Limpar o conteúdo de carregamento
 
             const paragraph = createElement("p", {}, data.extract);
             const link = createElement(
@@ -114,29 +99,33 @@ export default function CuriositiesSection() {
         }
     };
 
+    /**
+     * Função para construir a seção de curiosidades.
+     */
     const buildSection = () => {
         const section = createElement(
             "section",
             {
                 className: "curiosities-section",
-                "aria-label": "Curiosidades sobre o Vasco da Gama"
+                "aria-label": "Curiosidades e Fatos Históricos sobre o Vasco da Gama"
             }
         );
 
-        const title = createElement("h1", {}, "Curiosidades do Vasco");
+        const title = createElement("h1", {}, "Curiosidades e Fatos Históricos do Vasco");
         const introText = createElement(
             "p",
-            { className: "curiosities-intro" }
+            { className: "curiosities-intro" },
+            "Descubra alguns dos momentos mais marcantes da história do nosso querido Vasco da Gama!"
         );
 
         const staticList = createCuriosityList();
-        const estatSection = createEstatisticasSection();
         const wikiBlock = createWikipediaBlock();
 
-        section.append(title, introText, staticList, estatSection, wikiBlock);
+        section.append(title, introText, staticList, wikiBlock);
         return section;
     };
 
+    // Monta a seção e busca as curiosidades da Wikipedia
     const sectionElement = buildSection();
     fetchWikipediaSummary(sectionElement);
 
